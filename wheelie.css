@@ -1,0 +1,88 @@
+/* The container adjusts to fit the options without fixed height */
+.wheelie-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  touch-action: none;
+  user-select: none;
+  background: #fff;
+}
+
+/* The spinning list of options. 
+   The container adjusts dynamically based on the number of options. */
+.wheelie-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.4s ease-out;
+}
+
+/* Each option row (we'll dynamically adjust this in JS) */
+.wheelie-option {
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  /* Dynamically adjusted by JS */
+}
+
+/* The selected option in the middle */
+.wheelie-option.selected {
+  font-size: 18px;
+  color: #000;
+}
+
+/* Overlay for top/bottom fade + center highlight */
+.wheelie-overlay {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  pointer-events: none; /* let clicks pass through */
+  z-index: 10;
+}
+
+/* The center highlight bar */
+.wheelie-center-highlight {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 40px;
+  transform: translateY(-50%);
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Top fade */
+.wheelie-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px; /* fade area = one row's height */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* Bottom fade */
+.wheelie-overlay::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}

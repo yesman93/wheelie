@@ -1,0 +1,18 @@
+{
+  "name": "wheelie",
+  "version": "1.0.0",
+  "description": "A touch-friendly wheel/spin select JavaScript library that transforms a <select> element into an interactive spinning wheel.",
+  "main": "wheelie.js",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [
+    "wheel",
+    "select",
+    "javascript",
+    "touch",
+    "spin"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
